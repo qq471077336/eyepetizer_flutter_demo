@@ -14,12 +14,6 @@ class TabNavigation extends StatefulWidget {
 class _TabNavigationState extends State<TabNavigation> {
   DateTime lastTime = DateTime.now();
 
-  // late Widget _currentBody = Container(
-  //   color: Colors.pink,
-  // );
-  //
-  // int _currentIndex = 0;
-
   PageController pageController = PageController();
 
   @override
@@ -94,24 +88,4 @@ class _TabNavigationState extends State<TabNavigation> {
       return true;
     }
   }
-
-  // _onTap(int index) {
-  //   switch(index) {
-  //     case 0:
-  //       _currentBody = Container(color: Colors.pink,);
-  //       break;
-  //     case 1:
-  //       _currentBody = Container(color: Colors.red,);
-  //       break;
-  //     case 2:
-  //       _currentBody = Container(color: Colors.orange,);
-  //       break;
-  //     case 3:
-  //       _currentBody = Container(color: Colors.yellow,);
-  //       break;
-  //   }
-  //   setState(() {
-  //     _currentIndex = index;
-  //   });
-  // }
 }
