@@ -1,6 +1,6 @@
 class Url {
   // 'http://baobab.kaiyanapp.com/api/';
-  static String baseUrl = "";
+  static String baseUrl = "http://baobab.kaiyanapp.com/api/";
 
   static Map<String, String> httpHeader = {
     'Accept': 'application/json, text/plain, */*',

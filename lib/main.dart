@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 
   //Flutter沉浸式状态栏，Platform.isAndroid 判断是否是Android手机
   if (Platform.isAndroid) {
@@ -18,6 +18,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(

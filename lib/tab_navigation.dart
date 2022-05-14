@@ -1,4 +1,5 @@
 import 'package:eyepetizer_flutter_demo/config/string.dart';
+import 'package:eyepetizer_flutter_demo/page/home/home_page.dart';
 import 'package:eyepetizer_flutter_demo/utils/toast_util.dart';
 import 'package:eyepetizer_flutter_demo/viewmodel/tab_navigation_viewmodel.dart';
 import 'package:eyepetizer_flutter_demo/widget/provider_widget.dart';
@@ -24,7 +25,8 @@ class _TabNavigationState extends State<TabNavigation> {
             controller: pageController,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              Container(color: Colors.pink,),
+              // Container(color: Colors.pink,),
+              const HomePage(),
               Container(color: Colors.red,),
               Container(color: Colors.orange,),
               Container(color: Colors.yellow,),
