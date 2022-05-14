@@ -1,5 +1,7 @@
 import 'package:eyepetizer_flutter_demo/config/string.dart';
 import 'package:eyepetizer_flutter_demo/utils/toast_util.dart';
+import 'package:eyepetizer_flutter_demo/viewmodel/tab_navigation_viewmodel.dart';
+import 'package:eyepetizer_flutter_demo/widget/provider_widget.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigation extends StatefulWidget {
@@ -12,26 +14,45 @@ class TabNavigation extends StatefulWidget {
 class _TabNavigationState extends State<TabNavigation> {
   DateTime lastTime = DateTime.now();
 
-  late Widget _currentBody = Container(
-    color: Colors.pink,
-  );
+  // late Widget _currentBody = Container(
+  //   color: Colors.pink,
+  // );
+  //
+  // int _currentIndex = 0;
 
-  int _currentIndex = 0;
+  PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
         child: Scaffold(
-          body: _currentBody,
-          bottomNavigationBar: BottomNavigationBar(
-            items: _items(),
-            currentIndex: _currentIndex,
-            onTap: _onTap,
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: const Color(0xff000000),
-            unselectedItemColor: const Color(0xff9a9a9a),
+          body: PageView(
+            controller: pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              Container(color: Colors.pink,),
+              Container(color: Colors.red,),
+              Container(color: Colors.orange,),
+              Container(color: Colors.yellow,),
+            ],
           ),
-        ),
+            bottomNavigationBar: ProviderWidget<TabNavigationViewModel>(
+                model: TabNavigationViewModel(),
+                builder: (context, model, child) {
+                  return BottomNavigationBar(
+                    items: _items(),
+                    currentIndex: model.currentIndex,
+                    onTap: (index){
+                      if(model.currentIndex != index) {
+                        pageController.jumpToPage(index);
+                        model.changeBottomTabIndex(index);
+                      }
+                    },
+                    type: BottomNavigationBarType.fixed,
+                    selectedItemColor: const Color(0xff000000),
+                    unselectedItemColor: const Color(0xff9a9a9a),
+                  );
+                })),
         onWillPop: _onWillPop);
   }
 
@@ -74,23 +95,23 @@ class _TabNavigationState extends State<TabNavigation> {
     }
   }
 
-  _onTap(int index) {
-    switch(index) {
-      case 0:
-        _currentBody = Container(color: Colors.pink,);
-        break;
-      case 1:
-        _currentBody = Container(color: Colors.red,);
-        break;
-      case 2:
-        _currentBody = Container(color: Colors.orange,);
-        break;
-      case 3:
-        _currentBody = Container(color: Colors.yellow,);
-        break;
-    }
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+  // _onTap(int index) {
+  //   switch(index) {
+  //     case 0:
+  //       _currentBody = Container(color: Colors.pink,);
+  //       break;
+  //     case 1:
+  //       _currentBody = Container(color: Colors.red,);
+  //       break;
+  //     case 2:
+  //       _currentBody = Container(color: Colors.orange,);
+  //       break;
+  //     case 3:
+  //       _currentBody = Container(color: Colors.yellow,);
+  //       break;
+  //   }
+  //   setState(() {
+  //     _currentIndex = index;
+  //   });
+  // }
 }
