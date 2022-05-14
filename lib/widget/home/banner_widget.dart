@@ -1,7 +1,7 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:eyepetizer_flutter_demo/utils/cache_image.dart';
 import 'package:eyepetizer_flutter_demo/viewmodel/home/home_page_viewmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 
 class BannerWidget extends StatelessWidget {
   final HomePageViewModel model;

@@ -7,7 +7,6 @@ class AppInit{
 
   static Future<void> init() async {
     Url.baseUrl = 'http://baobab.kaiyanapp.com/api/';
-    print(Url.baseUrl);
     Future.delayed(const Duration(milliseconds: 2000), (){
 
     });

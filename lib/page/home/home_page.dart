@@ -1,7 +1,6 @@
 import 'package:eyepetizer_flutter_demo/config/string.dart';
 import 'package:eyepetizer_flutter_demo/page/home/home_body_page.dart';
 import 'package:eyepetizer_flutter_demo/widget/app_bar.dart';
-import 'package:eyepetizer_flutter_demo/widget/loading_state_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,6 +29,5 @@ class _HomePageState extends State<HomePage>
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }

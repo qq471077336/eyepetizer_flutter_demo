@@ -12,7 +12,7 @@ class NewsModel extends PagingModel<NewsItemModel> {
     if (json['itemList'] != null) {
       itemList = [];
       json['itemList'].forEach((v) {
-        itemList.add(new NewsItemModel.fromJson(v));
+        itemList?.add(new NewsItemModel.fromJson(v));
       });
     }
     count = json['count'];
@@ -24,7 +24,7 @@ class NewsModel extends PagingModel<NewsItemModel> {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.itemList != null) {
-      data['itemList'] = this.itemList.map((v) => v.toJson()).toList();
+      data['itemList'] = this.itemList?.map((v) => v.toJson()).toList();
     }
     data['count'] = this.count;
     data['total'] = this.total;

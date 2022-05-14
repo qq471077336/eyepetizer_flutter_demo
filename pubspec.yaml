@@ -44,7 +44,8 @@ dependencies:
   # State Manager、Navigation Manager
   get: 4.2.4
   # banner
-  flutter_swiper: ^1.1.6
+  card_swiper: ^2.0.3
+#  flutter_swiper: ^1.1.6
   # 图片扩展库
   extended_image: ^4.1.0
 

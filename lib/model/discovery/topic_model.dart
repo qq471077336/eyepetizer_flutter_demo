@@ -13,7 +13,7 @@ class TopicModel extends PagingModel<TopicItemModel>{
     if (json['itemList'] != null) {
       itemList = [];
       json['itemList'].forEach((v) {
-        itemList.add(new TopicItemModel.fromJson(v));
+        itemList?.add(new TopicItemModel.fromJson(v));
       });
     }
     count = json['count'];
@@ -25,7 +25,7 @@ class TopicModel extends PagingModel<TopicItemModel>{
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.itemList != null) {
-      data['itemList'] = this.itemList.map((v) => v.toJson()).toList();
+      data['itemList'] = this.itemList?.map((v) => v.toJson()).toList();
     }
     data['count'] = this.count;
     data['total'] = this.total;

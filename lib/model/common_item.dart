@@ -26,7 +26,7 @@ class Issue extends PagingModel<Item> {
     if (json['itemList'] != null) {
       itemList = [];
       (json['itemList'] as List).forEach((v) {
-        itemList.add(new Item.fromJson(v));
+        itemList?.add(Item.fromJson(v));
       });
     }
     type = json['type'];
@@ -41,7 +41,7 @@ class Issue extends PagingModel<Item> {
     data['releaseTime'] = this.releaseTime;
     data['count'] = this.count;
     if (this.itemList != null) {
-      data['itemList'] = this.itemList.map((v) => v.toJson()).toList();
+      data['itemList'] = this.itemList?.map((v) => v.toJson()).toList();
     }
     data['type'] = this.type;
     data['nextPageUrl'] = this.nextPageUrl;

@@ -13,8 +13,8 @@ class HomePageViewModel extends BaseChangeNotifier {
     HttpManager.getData(
       Url.feedUrl,
       success: (json) {
-        var issueEntity = IssueEntity.fromJson(json);
-        bannerList = issueEntity.itemList;
+        IssueEntity issueEntity = IssueEntity.fromJson(json);
+        bannerList = issueEntity.itemList!;
         bannerList.removeWhere((element) => element.type == 'banner2');
         loadingState = LoadingState.done;
       },
