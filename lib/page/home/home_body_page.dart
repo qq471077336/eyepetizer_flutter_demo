@@ -13,7 +13,7 @@ class HomeBodyPage extends StatefulWidget {
 class _HomeBodyPageState extends State<HomeBodyPage>
     with AutomaticKeepAliveClientMixin {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     super.build(context);
     return ProviderWidget<HomePageViewModel>(
         model: HomePageViewModel(),
