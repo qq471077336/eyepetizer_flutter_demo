@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:eyepetizer_flutter_demo/app_init.dart';
 import 'package:eyepetizer_flutter_demo/http/Url.dart';
 import 'package:eyepetizer_flutter_demo/http/http_manager.dart';
+import 'package:eyepetizer_flutter_demo/page/video/video_detail_page.dart';
 import 'package:eyepetizer_flutter_demo/tab_navigation.dart';
 import 'package:eyepetizer_flutter_demo/utils/toast_util.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +66,7 @@ class _GetMaterialAppWidgetState extends State<GetMaterialAppWidget> {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: ()=>widget.child),
+        GetPage(name: '/detail', page: () => const VideoDetailPage()),
       ],
     );
   }

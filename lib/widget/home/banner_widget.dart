@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:eyepetizer_flutter_demo/utils/cache_image.dart';
+import 'package:eyepetizer_flutter_demo/utils/navigator_util.dart';
 import 'package:eyepetizer_flutter_demo/viewmodel/home/home_page_viewmodel.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,7 @@ class BannerWidget extends StatelessWidget {
         },
         onTap: (index) {
           print("点击了banner图。。$index}");
+          toNamed('/detail', model.bannerList[index].data);
         },
         // banner 指示器
         pagination: const SwiperPagination(

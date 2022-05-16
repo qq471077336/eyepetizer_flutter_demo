@@ -53,7 +53,7 @@ abstract class BaseListViewModel<T, M extends PagingModel<T>>
     HttpManager.getData(nextPageUrl!, success: (json) {
       M model = getModel(json);
       removeUselessData(model.itemList);
-      itemList?.addAll(model.itemList!);
+      itemList.addAll(model.itemList!);
       nextPageUrl = getNextPageUrl(model);
       refreshController.loadComplete();
       notifyListeners();

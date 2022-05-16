@@ -22,8 +22,8 @@ class HomePageViewModel extends BaseListViewModel<Item, IssueEntity> {
   @override
   void getData(List<Item>? list) {
     bannerList = list!;
-    itemList?.clear();
-    itemList?.add(Item());
+    itemList.clear();
+    itemList.add(Item());
   }
 
   @override
