@@ -7,7 +7,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 abstract class BaseListViewModel<T, M extends PagingModel<T>>
     extends BaseChangeNotifier {
-  List<T>? itemList = [];
+  List<T> itemList = [];
 
   late String? nextPageUrl;
 
@@ -78,7 +78,7 @@ abstract class BaseListViewModel<T, M extends PagingModel<T>>
   void removeUselessData(List<T>? itemList) {}
 
   void getData(List<T>? itemList) {
-    this.itemList = itemList;
+    this.itemList = itemList!;
   }
 
   String? getNextPageUrl(M model) {
