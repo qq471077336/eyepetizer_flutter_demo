@@ -1,7 +1,7 @@
+import 'package:eyepetizer_flutter_demo/model/common_item.dart';
+import 'package:eyepetizer_flutter_demo/state/base_list_state.dart';
 import 'package:eyepetizer_flutter_demo/viewmodel/home/home_page_viewmodel.dart';
 import 'package:eyepetizer_flutter_demo/widget/home/banner_widget.dart';
-import 'package:eyepetizer_flutter_demo/widget/loading_state_widget.dart';
-import 'package:eyepetizer_flutter_demo/widget/provider_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeBodyPage extends StatefulWidget {
@@ -11,22 +11,15 @@ class HomeBodyPage extends StatefulWidget {
   State<HomeBodyPage> createState() => _HomeBodyPageState();
 }
 
-class _HomeBodyPageState extends State<HomeBodyPage>
-    with AutomaticKeepAliveClientMixin {
+class _HomeBodyPageState extends BaseListState<Item, HomePageViewModel, HomeBodyPage> {
+
   @override
-  Widget build(BuildContext context) {
-    super.build(context);
-    return ProviderWidget<HomePageViewModel>(
-        model: HomePageViewModel(),
-        onModelInit: (model) => model.refresh(),
-        builder: (context, model, child) {
-          return LoadingStateWidget(
-            loadingState: model.loadingState,
-            retry: model.retry,
-            child: _banner(model),
-          );
-        });
+  Widget getContentChild(HomePageViewModel model) {
+    return _banner(model);
   }
+
+  @override
+  HomePageViewModel get viewModel => HomePageViewModel();
 
   _banner(model) {
     return Container(
@@ -39,6 +32,4 @@ class _HomeBodyPageState extends State<HomeBodyPage>
     );
   }
 
-  @override
-  bool get wantKeepAlive => true;
 }

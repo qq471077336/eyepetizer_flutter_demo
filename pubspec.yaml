@@ -45,9 +45,10 @@ dependencies:
   get: 4.2.4
   # banner
   card_swiper: ^2.0.3
-#  flutter_swiper: ^1.1.6
   # 图片扩展库
   extended_image: ^4.1.0
+  # 上拉刷新 下拉加载
+  pull_to_refresh: ^2.0.0
 
 dev_dependencies:
   flutter_test:
